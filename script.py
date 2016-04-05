@@ -7,7 +7,7 @@ import re
 
 
 def file_size(l):
-    return "SIZE IS: " + str(l[6] * .001) + " KB"
+    return str(l[6] * .001)
 
 
 def modification_time(l):
@@ -39,13 +39,13 @@ def word_count(path):
 
     elif ext == "txt":
         f = open(path)
-        string = re.split(space,f.read())
+        string = re.split(space, f.read())
         return len(string)
 
 
 def filestat(path):
     l = list(os.stat(path))
-    print file_size(l)
+    print "SIZE IS: " + file_size(l) + " KB"
     print "LAST MODIFIED ON: " + str(modification_time(l))
     print "LAST CHANGE IN METADATA: " + str(metadata_change_time(l))
     print "THE WORD COUNT IS " + str(word_count(path))
