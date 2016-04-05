@@ -37,8 +37,10 @@ def word_count(path):
             word += i
         return ct
 
-    elif ext==".txt"
-
+    elif ext == "txt":
+        f = open(path)
+        string = re.split(space,f.read())
+        return len(string)
 
 
 def filestat(path):
@@ -50,4 +52,4 @@ def filestat(path):
 
 
 if __name__ == "vutsuak":
-    filestat("C:\Users\windows 7\Desktop\Reading Between The Lines.docx")
+    filestat("C:\Users\windows 7\Desktop\jgjg.txt")
