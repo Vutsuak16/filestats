@@ -2,7 +2,7 @@ __name__ = "vutsuak"
 
 import os
 import time
-
+from docx import Document
 
 def file_size(l):
     return "SIZE IS: "+str(l[6] * .001) + " KB"
@@ -16,8 +16,11 @@ def metadata_change_time(l):
     return time.ctime(l[9])
 
 def word_count(path):
-    f=open(path)
-    return len(f.read())
+    ext=path.split(".")[1]
+    if ext == "docx":
+        Document()
+
+
 
 
 def filestat(path):
