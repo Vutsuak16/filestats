@@ -4,7 +4,7 @@ import os
 import time
 from docx import Document
 import re
-import stat
+
 
 
 def file_size(l):
@@ -45,6 +45,9 @@ def word_count(path):
 
 
 def filestat(path):
+    if not os.access(path,os.F_OK):
+        raise "The file path does not exists"
+        return
     l = list(os.stat(path))
     print "SIZE IS: " + file_size(l) + " KB"
     print "LAST MODIFIED ON: " + str(modification_time(l))
@@ -56,4 +59,4 @@ def filestat(path):
 
 
 if __name__ == "vutsuak":
-    filestat("C:\Users\windows 7\Desktop\jgjg.txt")
+    filestat("C:\Users\windows 7\Desktop\Draft_1.docx")
