@@ -4,6 +4,7 @@ import os
 import time
 from docx import Document
 import re
+import stat
 
 
 def file_size(l):
@@ -48,7 +49,11 @@ def filestat(path):
     print "SIZE IS: " + file_size(l) + " KB"
     print "LAST MODIFIED ON: " + str(modification_time(l))
     print "LAST CHANGE IN METADATA: " + str(metadata_change_time(l))
-    print "THE WORD COUNT IS " + str(word_count(path))
+    print "THE WORD COUNT IS: " + str(word_count(path))
+    print "READABILITY: "+str(os.access(path,os.R_OK))
+    print "WRITABILITY: " +str(os.access(path,os.W_OK))
+    print "EXECUTION: "+str(os.access(path,os.X_OK))
+
 
 
 if __name__ == "vutsuak":
