@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='filestats',
       version='0.1',
@@ -7,5 +7,12 @@ setup(name='filestats',
       author='vutsuak',
       author_email='vutsuak96@gmail.com',
       license='MIT',
-      packages=['funniest'],
-      zip_safe=False)
+      packages=find_packages(),
+      zip_safe=False,
+      classifier=[
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: End Users/Desktop",
+          "License :: OSI Approved :: MIT License",
+          "Natural Language :: English"
+          "Programming Language :: Python :: 2 :: Only"
+      ])
