@@ -5,20 +5,6 @@ import time
 from docx import Document
 import re
 
-
-
-def file_size(l):
-    return str(l[6] * .001)
-
-
-def modification_time(l):
-    return time.ctime(l[7])
-
-
-def metadata_change_time(l):
-    return time.ctime(l[9])
-
-
 def word_count(path):
     space = re.compile("\s+")
     line = re.compile("\\n+")
@@ -47,10 +33,10 @@ def word_count(path):
 def filestat(path):
     if not os.access(path,os.F_OK):
         raise "The file path does not exists"
-    l = list(os.stat(path))
-    print("SIZE IS: " + file_size(l) + " KB")
-    print ("LAST MODIFIED ON: " + str(modification_time(l)))
-    print ("LAST CHANGE IN METADATA: " + str(metadata_change_time(l)))
+    l = list((os.stat(path)))
+    print("SIZE IS: " + str(l[6]*0.001) + " KB")
+    print ("LAST MODIFIED ON: " + str(time.ctime(l[7])))
+    print ("LAST CHANGE IN METADATA: " + str(time.ctime(l[9])))
     print ("READABILITY: " + str(os.access(path, os.R_OK)))
     print ("WRITABILITY: " + str(os.access(path, os.W_OK)))
     print ("EXECUTION: " + str(os.access(path, os.X_OK)))
